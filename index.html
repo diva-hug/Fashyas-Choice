@@ -4,113 +4,1027 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#64152d">
+  <meta name="theme-color" content="#701b3a">
+
   <title>Fashya's Choice | Fashion Tailoring Institute</title>
-  <meta name="description" content="Fashya's Choice Fashion Tailoring Institute in Tirupati. Learn, design and grow your fashion skills.">
-  <link rel="stylesheet" href="style.css">
+
+  <meta name="description" content="Fashya's Choice Fashion Tailoring Institute in Tirupati. Book a demo or apply for a tailoring course.">
+
+  <style>
+    :root {
+      --wine: #701b3a;
+      --wine-dark: #451126;
+      --gold: #c9a15b;
+      --cream: #fffaf2;
+      --ink: #33252a;
+      --muted: #74656a;
+      --white: #ffffff;
+      --border: #eadbc8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    a {
+      color: var(--wine);
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 2px solid var(--gold);
+      padding: 12px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+    }
+
+    .brand h2 {
+      color: var(--wine);
+      margin: 0;
+      font-size: 21px;
+    }
+
+    .brand p {
+      margin: 0;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--wine-dark), #8b3152);
+      color: var(--white);
+      text-align: center;
+      padding: 85px 20px;
+    }
+
+    .hero .tagline {
+      color: #f3d7a2;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.2;
+      margin: 15px auto;
+      max-width: 850px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 12px auto 25px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      border: 0;
+      border-radius: 7px;
+      padding: 13px 20px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #29151d;
+    }
+
+    .btn-wine {
+      background: var(--wine);
+      color: var(--white);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--wine);
+    }
+
+    section {
+      padding: 55px 6%;
+      scroll-margin-top: 25px;
+    }
+
+    .section-title {
+      color: var(--wine);
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: clamp(27px, 4vw, 38px);
+      margin: 0 0 14px;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      text-align: center;
+      margin: 0 auto 30px;
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 30px auto 0;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 26px;
+      box-shadow: 0 6px 20px rgba(69, 17, 38, 0.05);
+    }
+
+    .card h3 {
+      color: var(--wine);
+      margin-top: 0;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .feature-icon {
+      font-size: 35px;
+    }
+
+    .founder-layout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 35px;
+      max-width: 850px;
+      margin: 30px auto 0;
+      flex-wrap: wrap;
+    }
+
+    .founder-photo {
+      width: 240px;
+      height: 290px;
+      object-fit: cover;
+      border: 4px solid var(--gold);
+      border-radius: 12px;
+    }
+
+    .founder-info {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .founder-info h3 {
+      color: var(--wine);
+      font-size: 27px;
+      margin-bottom: 5px;
+    }
+
+    .page {
+      display: none;
+      min-height: 60vh;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .form-wrap {
+      max-width: 650px;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      box-shadow: 0 8px 25px rgba(69, 17, 38, 0.06);
+    }
+
+    .form-wrap h2 {
+      margin-top: 15px;
+    }
+
+    .form-description {
+      text-align: center;
+      color: var(--muted);
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 15px 0 6px;
+    }
+
+    input, select {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d8c8c8;
+      border-radius: 7px;
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    input:focus, select:focus {
+      outline: 2px solid var(--gold);
+      border-color: var(--wine);
+    }
+
+    .form-wrap form > .btn {
+      margin-top: 22px;
+      width: 100%;
+    }
+
+    .notice {
+      background: #fff6e5;
+      border-left: 4px solid var(--gold);
+      padding: 12px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: #66513a;
+      margin-top: 18px;
+    }
+
+    .fee-display {
+      background: #f8edf1;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 15px;
+    }
+
+    .fee-display p {
+      margin: 4px 0;
+    }
+
+    .success {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: #eef8ed;
+      border: 1px solid #c5e2c0;
+      border-radius: 10px;
+    }
+
+    .success.show {
+      display: block;
+    }
+
+    .success h3 {
+      color: #28602a;
+      margin-top: 0;
+    }
+
+    .contact-card {
+      text-align: center;
+    }
+
+    .contact-card .btn {
+      margin: 7px 0;
+    }
+
+    footer {
+      background: var(--wine-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    footer p {
+      margin: 5px;
+    }
+
+    footer a {
+      color: #f1d6a0;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .brand img {
+        width: 58px;
+        height: 58px;
+      }
+
+      .brand h2 {
+        font-size: 18px;
+      }
+
+      .hero {
+        padding: 60px 18px;
+      }
+
+      section {
+        padding: 38px 18px;
+      }
+
+      .form-wrap {
+        padding: 20px;
+      }
+
+      .founder-layout {
+        text-align: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <header class="header">
-    <a href="#home" class="brand">
-      <img src="logo.png"
-           alt="Fashya's Choice logo"
-           style="width:65px;height:65px;object-fit:contain;">
-      <span>
-        <strong>Fashya's Choice</strong>
-        <small>FASHION TAILORING INSTITUTE</small>
-      </span>
-    </a>
+<header>
+  <div class="brand">
+    <img src="logo.png" alt="Fashya's Choice logo">
+    <div>
+      <h2>Fashya's Choice</h2>
+      <p>FASHION TAILORING INSTITUTE</p>
+    </div>
+  </div>
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#founder">Founder</a>
-      <a href="#courses">Courses</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <nav aria-label="Main navigation">
+    <a href="#home" onclick="showPage('home'); return false;">Home</a>
+    <a href="#about" onclick="showPage('home'); scrollToSection('about'); return false;">About</a>
+    <a href="#founder" onclick="showPage('home'); scrollToSection('founder'); return false;">Founder</a>
+    <a href="#contact" onclick="showPage('home'); scrollToSection('contact'); return false;">Contact</a>
+  </nav>
+</header>
 
-  <main>
-    <section class="hero" id="home">
-      <p class="eyebrow">WELCOME TO FASHYA'S CHOICE</p>
-      <h1>Turn Your Passion Into <span>Fashion.</span></h1>
-      <p class="hero-text">
-        Learn • Design • Stitch • Shine
+<main>
+
+  <!-- HOME PAGE -->
+  <div id="home" class="page active">
+
+    <section class="hero">
+      <p class="tagline">LEARN • DESIGN • STITCH • SHINE</p>
+
+      <h1>Turn Your Passion Into Fashion</h1>
+
+      <p>
+        Begin your fashion tailoring journey with Fashya's Choice.
+        Learn, practise and develop your tailoring skills in Tirupati.
       </p>
-      <p class="hero-text">
-        Begin your fashion and tailoring journey with creativity,
-        confidence and craftsmanship.
-      </p>
 
-      <div class="hero-buttons">
-        <a class="button primary" href="#courses">Explore Courses</a>
-        <a class="button secondary" href="#contact">Plan a Visit</a>
+      <div class="buttons">
+        <button class="btn btn-gold" onclick="showPage('demo')">
+          Book a Demo
+        </button>
+
+        <button class="btn btn-white" onclick="showPage('join')">
+          Join a Course
+        </button>
       </div>
     </section>
 
-    <section class="section" id="about">
-      <p class="eyebrow">ABOUT OUR INSTITUTE</p>
-      <h2>Where Creativity Meets Craftsmanship</h2>
-      <p>
-        Fashya's Choice is a fashion tailoring institute in Tirupati.
-        We aim to help learners explore fashion, develop practical
-        stitching skills and express their creativity through design.
+    <section id="about">
+      <h2 class="section-title">Welcome to Fashya's Choice</h2>
+
+      <p class="section-intro">
+        A fashion tailoring institute for learners interested in
+        stitching, garment making and fashion design. Register for
+        a physical demo or apply for a course.
       </p>
+
+      <div class="cards">
+        <article class="card">
+          <div class="feature-icon">🧵</div>
+          <h3>Book a Physical Demo</h3>
+          <p>
+            Register your details and request a visit to our institute.
+            Your preferred date will need confirmation.
+          </p>
+          <button class="btn btn-gold" onclick="showPage('demo')">
+            Register for Demo
+          </button>
+        </article>
+
+        <article class="card">
+          <div class="feature-icon">✂️</div>
+          <h3>Join a Course</h3>
+          <p>
+            Choose the available course, select your preferred duration,
+            and prepare your application.
+          </p>
+          <button class="btn btn-wine" onclick="showPage('join')">
+            Apply Now
+          </button>
+        </article>
+      </div>
     </section>
 
-    <section class="section" id="founder">
-      <p class="eyebrow">THE PERSON BEHIND OUR VISION</p>
-      <h2>Meet Our Founder</h2>
+    <section id="founder">
+      <h2 class="section-title">Meet Our Founder</h2>
 
-      <img
-        src="founder.png"
-        alt="N. Kusuma Priya, Founder of Fashya's Choice"
-        style="display:block;width:100%;max-width:350px;max-height:480px;object-fit:cover;object-position:center top;margin:25px auto;border:4px solid #c49a45;border-radius:12px;"
-      >
+      <div class="founder-layout">
+        <img
+          class="founder-photo"
+          src="founder.png"
+          alt="N. Kusuma Priya, founder of Fashya's Choice"
+        >
 
-      <h3 style="color:#64152d;font-family:Georgia,serif;font-size:24px;">
-        N. Kusuma Priya
-      </h3>
-      <p>Founder, Fashya's Choice Fashion Tailoring Institute</p>
+        <div class="founder-info">
+          <h3>N. Kusuma Priya</h3>
+          <p><strong>Founder, Fashya's Choice</strong></p>
+          <p>
+            Welcome to Fashya's Choice Fashion Tailoring Institute.
+            We aim to help learners build their tailoring skills and
+            grow their confidence in fashion.
+          </p>
+
+          <a class="btn btn-gold" href="tel:+919515721752">
+            Contact the Institute
+          </a>
+        </div>
+      </div>
     </section>
 
-    <section class="section courses" id="courses">
-      <p class="eyebrow">EXPLORE YOUR POTENTIAL</p>
-      <h2>Our Courses</h2>
-      <p>
-        Interested in learning fashion and tailoring?
-        Get in touch to explore available courses and syllabus details.
+    <section id="contact">
+      <h2 class="section-title">Visit Our Institute</h2>
+
+      <p class="section-intro">
+        Interested in learning with us? Contact the institute or
+        request a physical demo.
       </p>
-      <a class="button primary" href="#contact">Course Enquiry</a>
+
+      <div class="cards">
+        <article class="card contact-card">
+          <div class="feature-icon">📞</div>
+          <h3>Contact Us</h3>
+          <p>Call for course information and demo enquiries.</p>
+
+          <a class="btn btn-gold" href="tel:+919515721752">
+            Call +91 95157 21752
+          </a>
+
+          <br>
+
+          <a
+            class="btn btn-wine"
+            href="https://wa.me/919515721752?text=Hello%20Fashya%27s%20Choice%2C%20I%20would%20like%20to%20know%20about%20your%20tailoring%20courses."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp Us
+          </a>
+        </article>
+
+        <article class="card contact-card">
+          <div class="feature-icon">📍</div>
+          <h3>Find Our Institute</h3>
+
+          <p>
+            KK Layout, Reddy and Reddy's Colony,<br>
+            Tirupati, Andhra Pradesh 517501
+          </p>
+
+          <a
+            class="btn btn-gold"
+            href="https://maps.app.goo.gl/1bjA9r5HQRAf8q2H8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Directions
+          </a>
+        </article>
+      </div>
     </section>
+  </div>
 
-    <section class="section contact" id="contact">
-      <p class="eyebrow">LET'S CONNECT</p>
-      <h2>Start Your Fashion Journey</h2>
-      <p>
-        Contact our institute to enquire about courses
-        or arrange a visit.
+  <!-- DEMO REGISTRATION PAGE -->
+  <section id="demo" class="page">
+    <div class="form-wrap">
+
+      <button class="btn btn-wine" type="button" onclick="showPage('home')">
+        ← Back to Home
+      </button>
+
+      <h2 class="section-title">Book a Physical Demo</h2>
+
+      <p class="form-description">
+        Fill in your details to request a visit to our institute.
       </p>
 
-      <p><strong>Address</strong></p>
-      <p>
-        KK Layout, Reddy and Reddy's Colony,<br>
-        Tirupati, Andhra Pradesh 517501
+      <form id="demoForm">
+        <label for="demoName">Full Name *</label>
+        <input
+          id="demoName"
+          name="name"
+          type="text"
+          maxlength="100"
+          autocomplete="name"
+          required
+        >
+
+        <label for="demoPhone">Phone Number *</label>
+        <input
+          id="demoPhone"
+          name="phone"
+          type="tel"
+          inputmode="numeric"
+          pattern="[6-9][0-9]{9}"
+          maxlength="10"
+          placeholder="Enter 10-digit mobile number"
+          autocomplete="tel-national"
+          required
+        >
+
+        <label for="demoCity">City *</label>
+        <input
+          id="demoCity"
+          name="city"
+          type="text"
+          maxlength="80"
+          autocomplete="address-level2"
+          required
+        >
+
+        <label for="demoDate">Preferred Demo Date *</label>
+        <input id="demoDate" name="date" type="date" required>
+
+        <p class="notice">
+          This is a demo request, not a confirmed appointment.
+          Please contact the institute to confirm your visit.
+        </p>
+
+        <button class="btn btn-gold" type="submit">
+          Prepare Demo Application
+        </button>
+      </form>
+
+      <div id="demoSuccess" class="success" aria-live="polite">
+        <h3>Demo Request Prepared!</h3>
+        <p>
+          Download your application PDF. Your request has not been
+          sent to the institute yet.
+        </p>
+
+        <button class="btn btn-wine" onclick="downloadPDF('demo')">
+          Download Demo Application PDF
+        </button>
+
+        <p>
+          Need to confirm your visit?
+          <a href="https://wa.me/919515721752" target="_blank" rel="noopener noreferrer">
+            Contact us on WhatsApp
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSE APPLICATION PAGE -->
+  <section id="join" class="page">
+    <div class="form-wrap">
+
+      <button class="btn btn-wine" type="button" onclick="showPage('home')">
+        ← Back to Home
+      </button>
+
+      <h2 class="section-title">Join a Course</h2>
+
+      <p class="form-description">
+        Complete the application with your preferred course details.
       </p>
 
-      <p class="small-note">
-        Official phone number and WhatsApp contact will be added
-        after confirmation.
-      </p>
-    </section>
-  </main>
+      <form id="joinForm">
+        <label for="joinName">Full Name *</label>
+        <input
+          id="joinName"
+          name="name"
+          type="text"
+          maxlength="100"
+          autocomplete="name"
+          required
+        >
 
-  <footer>
-    <p>Fashya's Choice · Fashion Tailoring Institute</p>
-    <p>Learn • Design • Stitch • Shine</p>
-  </footer>
+        <label for="joinPhone">Phone Number *</label>
+        <input
+          id="joinPhone"
+          name="phone"
+          type="tel"
+          inputmode="numeric"
+          pattern="[6-9][0-9]{9}"
+          maxlength="10"
+          placeholder="Enter 10-digit mobile number"
+          autocomplete="tel-national"
+          required
+        >
 
-  <script src="script.js"></script>
+        <label for="joinCity">City *</label>
+        <input
+          id="joinCity"
+          name="city"
+          type="text"
+          maxlength="80"
+          autocomplete="address-level2"
+          required
+        >
+
+        <label for="courseName">Course Name *</label>
+        <select id="courseName" name="course" required>
+          <option value="">Select a course</option>
+          <option value="Basic Tailoring">Basic Tailoring — confirm details with institute</option>
+          <option value="Advanced Tailoring">Advanced Tailoring — confirm details with institute</option>
+          <option value="Fashion Design">Fashion Design — confirm details with institute</option>
+        </select>
+
+        <label for="duration">Course Duration *</label>
+        <select id="duration" name="duration" required>
+          <option value="">Select course duration</option>
+          <option value="3 Months">3 Months</option>
+          <option value="6 Months">6 Months</option>
+        </select>
+
+        <label for="courseFee">Total Course Fee (₹) *</label>
+        <input
+          id="courseFee"
+          name="fee"
+          type="number"
+          min="3000"
+          step="1"
+          placeholder="Enter the confirmed course fee"
+          required
+        >
+
+        <div class="fee-display">
+          <p><strong>Advance booking amount:</strong> ₹3,000</p>
+          <p><strong>Remaining amount:</strong> Calculated below</p>
+          <p class="fee" id="remainingFee">Enter the total course fee above.</p>
+        </div>
+
+        <p class="notice">
+          The ₹3,000 advance applies only to eligible courses. The course
+          fee must be confirmed by the institute. This form does not
+          accept payments or confirm admission.
+        </p>
+
+        <button class="btn btn-gold" type="submit">
+          Prepare Course Application
+        </button>
+      </form>
+
+      <div id="joinSuccess" class="success" aria-live="polite">
+        <h3>Course Application Prepared!</h3>
+
+        <p>
+          Your application PDF is ready to download. This is an application
+          copy only; it has not been sent to the institute and no payment
+          has been made.
+        </p>
+
+        <button class="btn btn-wine" onclick="downloadPDF('join')">
+          Download Course Application PDF
+        </button>
+
+        <p>
+          Contact the institute to confirm course availability and
+          advance payment instructions.
+        </p>
+
+        <a
+          class="btn btn-gold"
+          href="https://wa.me/919515721752?text=Hello%20Fashya%27s%20Choice%2C%20I%20have%20prepared%20a%20course%20application%20and%20would%20like%20to%20confirm%20the%20details."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ask About My Application
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><strong>Fashya's Choice</strong></p>
+  <p>Fashion Tailoring Institute</p>
+  <p>Learn • Design • Stitch • Shine</p>
+  <p>
+    <a href="https://maps.app.goo.gl/1bjA9r5HQRAf8q2H8" target="_blank" rel="noopener noreferrer">
+      Tirupati, Andhra Pradesh 517501
+    </a>
+  </p>
+  <p><a href="tel:+919515721752">+91 95157 21752</a></p>
+  <p style="font-size:12px;margin-top:18px">
+    © <span id="year"></span> Fashya's Choice. All rights reserved.
+  </p>
+</footer>
+
+<!-- jsPDF library for generating application PDFs in the browser -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+  const applicationData = {
+    demo: null,
+    join: null
+  };
+
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(function(page) {
+      page.classList.remove('active');
+    });
+
+    const page = document.getElementById(pageId);
+
+    if (page) {
+      page.classList.add('active');
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function scrollToSection(sectionId) {
+    setTimeout(function() {
+      const section = document.getElementById(sectionId);
+
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Set today's date as the earliest selectable demo date.
+  const demoDateInput = document.getElementById('demoDate');
+  const today = new Date();
+
+  demoDateInput.min = [
+    today.getFullYear(),
+    String(today.getMonth() + 1).padStart(2, '0'),
+    String(today.getDate()).padStart(2, '0')
+  ].join('-');
+
+  // Update the remaining course fee as the student types.
+  const courseFeeInput = document.getElementById('courseFee');
+
+  courseFeeInput.addEventListener('input', function() {
+    const fee = Number(courseFeeInput.value);
+    const remainingDisplay = document.getElementById('remainingFee');
+
+    if (courseFeeInput.value === '' || !Number.isFinite(fee) || fee < 3000) {
+      remainingDisplay.textContent = 'Enter a valid total fee of at least ₹3,000.';
+      return;
+    }
+
+    remainingDisplay.textContent =
+      'Remaining after ₹3,000 advance: ₹' +
+      (fee - 3000).toLocaleString('en-IN');
+  });
+
+  // Demo form: prepare data and reveal PDF download button.
+  document.getElementById('demoForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    if (!this.reportValidity()) {
+      return;
+    }
+
+    applicationData.demo = Object.fromEntries(new FormData(this).entries());
+
+    document.getElementById('demoSuccess').classList.add('show');
+
+    document.getElementById('demoSuccess').scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  });
+
+  // Course form: prepare data and reveal PDF download button.
+  document.getElementById('joinForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    if (!this.reportValidity()) {
+      return;
+    }
+
+    const fee = Number(document.getElementById('courseFee').value);
+
+    if (!Number.isFinite(fee) || fee < 3000) {
+      alert('Please enter a valid course fee of at least ₹3,000.');
+      return;
+    }
+
+    applicationData.join = Object.fromEntries(new FormData(this).entries());
+
+    document.getElementById('joinSuccess').classList.add('show');
+
+    document.getElementById('joinSuccess').scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  });
+
+  function downloadPDF(type) {
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+      alert('The PDF library could not load. Please check your internet connection and try again.');
+      return;
+    }
+
+    const data = applicationData[type];
+
+    if (!data) {
+      alert('Please complete and submit the form first.');
+      return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const wine = [112, 27, 58];
+    const gold = [201, 161, 91];
+
+    doc.setFillColor(wine[0], wine[1], wine[2]);
+    doc.rect(0, 0, 210, 36, 'F');
+
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(20);
+    doc.text("Fashya's Choice", 15, 16);
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(11);
+    doc.text('Fashion Tailoring Institute', 15, 25);
+
+    doc.setTextColor(51, 37, 42);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(16);
+
+    const title = type === 'demo'
+      ? 'Demo Visit Request'
+      : 'Course Application';
+
+    doc.text(title, 15, 50);
+
+    doc.setDrawColor(gold[0], gold[1], gold[2]);
+    doc.setLineWidth(1);
+    doc.line(15, 56, 195, 56);
+
+    const rows = [
+      ['Application date', new Date().toLocaleDateString('en-IN')],
+      ['Student name', data.name],
+      ['Phone number', data.phone],
+      ['City', data.city]
+    ];
+
+    if (type === 'demo') {
+      rows.push(['Preferred demo date', data.date]);
+      rows.push(['Appointment status', 'Pending institute confirmation']);
+    } else {
+      rows.push(['Course name', data.course]);
+      rows.push(['Course duration', data.duration]);
+      rows.push([
+        'Total course fee',
+        'Rs. ' + Number(data.fee).toLocaleString('en-IN')
+      ]);
+      rows.push(['Advance booking amount', 'Rs. 3,000']);
+      rows.push([
+        'Remaining amount',
+        'Rs. ' + (Number(data.fee) - 3000).toLocaleString('en-IN')
+      ]);
+      rows.push(['Payment status', 'Not paid']);
+      rows.push(['Admission status', 'Application only; not confirmed']);
+    }
+
+    let y = 69;
+
+    rows.forEach(function(row) {
+      const label = row[0];
+      const value = String(row[1]);
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      doc.setTextColor(wine[0], wine[1], wine[2]);
+      doc.text(label + ':', 15, y);
+
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(51, 37, 42);
+
+      const lines = doc.splitTextToSize(value, 105);
+      doc.text(lines, 80, y);
+
+      y += Math.max(9, lines.length * 5.5);
+
+      if (y > 250) {
+        doc.addPage();
+        y = 20;
+      }
+    });
+
+    y += 10;
+
+    if (y > 255) {
+      doc.addPage();
+      y = 20;
+    }
+
+    doc.setDrawColor(gold[0], gold[1], gold[2]);
+    doc.line(15, y, 195, y);
+
+    y += 10;
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    doc.setTextColor(wine[0], wine[1], wine[2]);
+    doc.text('Institute Contact Details', 15, y);
+
+    y += 7;
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(51, 37, 42);
+
+    const address =
+      "KK Layout, Reddy and Reddy's Colony, Tirupati, Andhra Pradesh 517501";
+
+    doc.text(doc.splitTextToSize(address, 175), 15, y);
+    y += 13;
+
+    doc.text('Phone: +91 95157 21752', 15, y);
+
+    y += 10;
+
+    doc.setFontSize(8);
+    doc.setTextColor(100, 85, 90);
+
+    const disclaimer = type === 'demo'
+      ? 'This document is a demo request only. The visit date must be confirmed by the institute.'
+      : 'This document is an application copy only. It is not an admission confirmation or a payment receipt.';
+
+    doc.text(doc.splitTextToSize(disclaimer, 175), 15, y);
+
+    const filename = type === 'demo'
+      ? 'Fashyas-Choice-Demo-Request.pdf'
+      : 'Fashyas-Choice-Course-Application.pdf';
+
+    doc.save(filename);
+  }
+</script>
+
 </body>
 </html>
